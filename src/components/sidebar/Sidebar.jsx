@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const Sidebar = ({ items, defaultActive }) => {
   const [activeItem, setActiveItem] = useState(defaultActive);
@@ -11,7 +12,7 @@ const Sidebar = ({ items, defaultActive }) => {
         isCollapsed ? "w-5" : "w-64"
       } transition-all duration-300 rounded-xl`}
       initial={{ width: 256 }}
-      animate={{ width: isCollapsed ? 80 : 256 }}
+      animate={{ width: isCollapsed ? 60 : 256 }}
     >
       <div className="p-4 border-b border-gray-700 flex justify-between items-center">
         {!isCollapsed && <h2 className="text-xl font-bold">Menu</h2>}
@@ -19,7 +20,7 @@ const Sidebar = ({ items, defaultActive }) => {
           onClick={() => setIsCollapsed(!isCollapsed)}
           className="p-2 rounded-full hover:bg-gray-700"
         >
-          {isCollapsed ? ">" : "<"}
+          {isCollapsed ? <FiChevronRight /> : <FiChevronLeft />}
         </button>
       </div>
 
